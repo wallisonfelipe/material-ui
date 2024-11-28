@@ -26,8 +26,9 @@ function clampWrapper(value, min = 0, max = 1) {
  */
 export function hexToRgb(color) {
   color = color.slice(1);
+  //const re = new RegExp(`.{1,${color.length >= 6 ? 2 : 1}}`, 'g');
+  const re = new RegExp(".{1,".concat(color.length >= 6 ? 2 : 1, "}"),"g");
 
-  const re = new RegExp(`.{1,${color.length >= 6 ? 2 : 1}}`, 'g');
   let colors = color.match(re);
 
   if (colors && colors[0].length === 1) {
